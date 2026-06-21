@@ -14,42 +14,42 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="space-y-3 flex-1">
+    <nav class="space-y-4 flex-1 mt-6">
       <router-link 
         to="/admin/dashboard" 
-        class="flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold transition-all duration-300 relative group"
-        :class="isActive('/admin/dashboard') ? 'text-primary bg-primary/10 shadow-inner' : 'text-secondary hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
+        class="flex items-center gap-5 px-6 py-4 rounded-3xl font-bold transition-all duration-300 relative group"
+        :class="isActive('/admin/dashboard') ? 'text-primary bg-blue-50/80 dark:bg-primary/10 shadow-sm' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
       >
-        <div v-if="isActive('/admin/dashboard')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-primary rounded-r-full"></div>
+        <div v-if="isActive('/admin/dashboard')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-primary rounded-r-full shadow-lg shadow-blue-500/50"></div>
         <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
         </svg>
-        Dashboard
+        Vue d'ensemble
       </router-link>
 
       <router-link 
         to="/admin/requests" 
-        class="flex items-center justify-between px-5 py-4 rounded-2xl font-semibold transition-all duration-300 relative group"
-        :class="isActive('/admin/requests') ? 'text-primary bg-primary/10 shadow-inner' : 'text-secondary hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
+        class="flex items-center justify-between px-6 py-4 rounded-3xl font-bold transition-all duration-300 relative group"
+        :class="isActive('/admin/requests') ? 'text-primary bg-blue-50/80 dark:bg-primary/10 shadow-sm' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
       >
-        <div class="flex items-center gap-4">
-          <div v-if="isActive('/admin/requests')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-primary rounded-r-full"></div>
+        <div class="flex items-center gap-5">
+          <div v-if="isActive('/admin/requests')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-primary rounded-r-full shadow-lg shadow-blue-500/50"></div>
           <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
           </svg>
           Demandes
         </div>
-        <span v-if="pendingCount > 0" class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm">{{ pendingCount }}</span>
+        <span v-if="pendingCount > 0" class="bg-red-500 text-white text-xs font-black px-2.5 py-1 rounded-full shadow-md shadow-red-500/30">{{ pendingCount }}</span>
       </router-link>
 
       <router-link 
         to="/admin/content" 
-        class="flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold transition-all duration-300 relative group"
-        :class="isActive('/admin/content') ? 'text-primary bg-primary/10 shadow-inner' : 'text-secondary hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
+        class="flex items-center gap-5 px-6 py-4 rounded-3xl font-bold transition-all duration-300 relative group"
+        :class="isActive('/admin/content') ? 'text-primary bg-blue-50/80 dark:bg-primary/10 shadow-sm' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white'"
       >
-        <div v-if="isActive('/admin/content')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-8 bg-primary rounded-r-full"></div>
+        <div v-if="isActive('/admin/content')" class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-primary rounded-r-full shadow-lg shadow-blue-500/50"></div>
         <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2-2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
         </svg>
         Contenu
       </router-link>

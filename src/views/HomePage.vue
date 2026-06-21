@@ -13,6 +13,7 @@
       <ContactSection />
     </main>
     <FooterSection />
+    <FloatingChat />
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import GallerySection from '@/components/sections/GallerySection.vue'
 import AreaSection from '@/components/sections/AreaSection.vue'
 import TestimonialsSection from '@/components/sections/TestimonialsSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
+import FloatingChat from '@/components/ui/FloatingChat.vue'
 
 onMounted(() => {
   const visitsStore = useVisitsStore()
