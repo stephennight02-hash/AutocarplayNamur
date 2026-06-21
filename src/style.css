@@ -1,0 +1,374 @@
+@import "tailwindcss";
+
+/* ============================================
+   CarPlay Namur — Premium Design System
+   ============================================ */
+
+@theme {
+  /* Colors */
+  --color-primary: #0071e3;
+  --color-primary-light: #2997ff;
+  --color-primary-dark: #0058b0;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f7;
+  --color-surface-glass: rgba(255, 255, 255, 0.72);
+  --color-text: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #86868b;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-dark-bg: #0a0a0a;
+  --color-dark-surface: #1c1c1e;
+  --color-dark-surface-alt: #2c2c2e;
+  --color-dark-glass: rgba(28, 28, 30, 0.72);
+  --color-dark-border: rgba(255, 255, 255, 0.08);
+
+  /* Font families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 40px rgba(0, 113, 227, 0.15);
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.04);
+
+  /* Animations */
+  --ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s var(--ease-premium), color 0.5s var(--ease-premium);
+}
+
+/* ============================================
+   Dark Mode
+   ============================================ */
+
+.dark body,
+.dark {
+  color: #f5f5f7;
+  background-color: var(--color-dark-bg);
+}
+
+/* Auto dark mode */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) body,
+  html:not(.light) {
+    color: #f5f5f7;
+    background-color: var(--color-dark-bg);
+  }
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   Premium Glassmorphism
+   ============================================ */
+
+.glass {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-border);
+}
+
+.dark .glass {
+  background: var(--color-dark-glass);
+  border-color: var(--color-dark-border);
+}
+
+/* ============================================
+   Premium Card
+   ============================================ */
+
+.card-premium {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.5s var(--ease-premium);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0), rgba(0, 113, 227, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: background 0.5s var(--ease-premium);
+  pointer-events: none;
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+
+.card-premium:hover::before {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+}
+
+.dark .card-premium {
+  background: var(--color-dark-surface);
+  border-color: var(--color-dark-border);
+}
+
+/* ============================================
+   Gradient Text
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   Premium Button
+   ============================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-premium);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.35);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 980px;
+  border: 1.5px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.4s var(--ease-premium);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: scale(1.04);
+}
+
+/* ============================================
+   Section Layout
+   ============================================ */
+
+.section-padding {
+  padding: 8rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 12rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 16rem 4rem;
+  }
+}
+
+.container-premium {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.animated > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.animated > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children.animated > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children.animated > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children.animated > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children.animated > *:nth-child(6) { transition-delay: 400ms; }
+.stagger-children.animated > *:nth-child(7) { transition-delay: 480ms; }
+.stagger-children.animated > *:nth-child(8) { transition-delay: 560ms; }
+
+.stagger-children.animated > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
+}
+
+/* ============================================
+   Selection
+   ============================================ */
+
+::selection {
+  background: rgba(0, 113, 227, 0.2);
+  color: var(--color-primary);
+}
+
+/* ============================================
+   Leaflet overrides
+   ============================================ */
+
+.leaflet-container {
+  border-radius: 20px;
+  font-family: var(--font-sans) !important;
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
+
+.input-premium {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface-alt);
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  transition: all 0.3s var(--ease-premium);
+  outline: none;
+}
+
+.input-premium:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+  background: var(--color-surface);
+}
+
+.dark .input-premium {
+  background: var(--color-dark-surface-alt);
+  border-color: var(--color-dark-border);
+  color: #f5f5f7;
+}
+
+.dark .input-premium:focus {
+  background: var(--color-dark-surface);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2);
+}
+
+.input-premium::placeholder {
+  color: var(--color-text-tertiary);
+}
