@@ -5,13 +5,13 @@ import { getStorage } from 'firebase/storage'
 import { getAnalytics } from 'firebase/analytics'
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_API_KEY",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "carplay-namur.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "carplay-namur",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "carplay-namur.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "123456789",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:123456789:web:123456789",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-123456789"
+  apiKey: "AIzaSyBXz44eewV33LeEI2gKNCQAiIvrN9WmTCI",
+  authDomain: "autocarplaynamur.firebaseapp.com",
+  projectId: "autocarplaynamur",
+  storageBucket: "autocarplaynamur.firebasestorage.app",
+  messagingSenderId: "1036998072469",
+  appId: "1:1036998072469:web:dad85f41df35edeb51639c",
+  measurementId: "G-FL2QNDCY97"
 }
 
 // Initialize Firebase
